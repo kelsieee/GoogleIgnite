@@ -3,3 +3,4 @@
 ## Members
 
 - Yohuan (mentor)
+- Aloysius (member)

@@ -2,5 +2,5 @@
 
 ## Members
 
--   Yohuan (mentor)
--   Xian Xiang (member)
+- Yohuan (mentor)
+- Xian Xiang (member)

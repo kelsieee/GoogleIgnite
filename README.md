@@ -4,3 +4,5 @@
 
 - Yohuan (mentor)
 - Jaylin (member)
+- Xian Xiang (member)
+

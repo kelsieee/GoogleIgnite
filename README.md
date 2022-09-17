@@ -11,6 +11,8 @@
 1. User request input
 2. Available route list
 
+<img src ="./User_Flow_Diagram.drawio.svg>
+
 KIV features
 - Request history
 - Booked routes

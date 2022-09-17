@@ -11,7 +11,7 @@
 1. User request input
 2. Available route list
 
-<img src ="./User_Flow_Diagram.drawio.svg>
+<img src ="./User_Flow_Diagram.drawio.svg" style="width:250px;height:250px">
 
 KIV features
 - Request history

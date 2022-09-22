@@ -1,5 +1,8 @@
 // main.dart
 import 'package:flutter/material.dart';
+import 'package:shuttleapp/pages/buspage.dart';
+import 'package:shuttleapp/pages/homepage.dart';
+import 'package:shuttleapp/pages/schedulepage.dart';
 
 
 void main() {
@@ -19,20 +22,25 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
 
-      home: const HomePage()
+      home: const MainPage()
     );
   }
 }
 
-// Home Page
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+// Main Page
+class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MainPageState extends State<MainPage> {
+  final screens = [
+    const SchedulePage(),
+    const HomePage(),
+    const BusPage(),
+  ];
 
   int _selectedIndex = 0;
 
@@ -48,53 +56,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            floating: true,
-            pinned: true,
-            snap: false,
-            centerTitle: true,
-            title: const Text('EasyGo'),
 
-            bottom: AppBar(
-              title: Container(
-                width: double.infinity,
-                height: 40,
-                color: Colors.transparent,
-                child: Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0),),
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: 'Search for app...',
-                        prefixIcon: const Icon(Icons.search)),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          // Other Sliver Widgets
-          SliverList(
-            delegate: SliverChildListDelegate([
-              const SizedBox(
-                height: 400,
-                child: Center(
-                  child: Text(
-                    'Sample text 1',
-                  ),
-                ),
-              ),
-              Container(
-                height: 1000,
-                color: Colors.pink,
-              ),
-            ]),
-          ),
-        ],
-      ),
-
+      body: screens[_selectedIndex],
 
       bottomNavigationBar: BottomNavigationBar(
         mouseCursor: SystemMouseCursors.grab,

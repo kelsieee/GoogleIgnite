@@ -33,6 +33,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int _selectedIndex = 0;
+
+  void _onNavBarTapped(int index) {
+    setState(() {
+      // call to setState tells Flutter framework that a navbar icon has been tapped
+      // occurs in BottomNavBar section below
+      _selectedIndex = index;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +93,29 @@ class _HomePageState extends State<HomePage> {
             ]),
           ),
         ],
+      ),
+
+
+      bottomNavigationBar: BottomNavigationBar(
+        mouseCursor: SystemMouseCursors.grab,
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.schedule),
+            label: 'Schedule',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.directions_bus_outlined),
+            label: 'Bus',
+          ),
+        ],
+
+      currentIndex: _selectedIndex,
+      onTap: _onNavBarTapped,
       ),
     );
   }

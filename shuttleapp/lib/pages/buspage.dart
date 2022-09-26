@@ -87,9 +87,9 @@ class BusPage extends StatelessWidget {
                           color: Colors.orangeAccent,
                           child: ListTile(
                             title: Text.rich(TextSpan(children: [
-                              TextSpan(text: route.firstStop),
+                              TextSpan(text: route.stops.first.name),
                               const WidgetSpan(child: Icon(Icons.arrow_right)),
-                              TextSpan(text: route.lastStop),
+                              TextSpan(text: route.stops.last.name),
                             ],),),
                             subtitle: Text(route.date.toString().substring(0,10)),
                             trailing: const Icon(Icons.arrow_forward_ios_rounded),

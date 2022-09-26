@@ -20,8 +20,8 @@ class RouteDetailsPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.network(route.stops.first.imageUrl),
-            Text("Starting: ${route.firstStop}"),
-            Text("Ending: ${route.lastStop}"),
+            Text("Starting: ${route.stops.first.name}"),
+            Text("Ending: ${route.stops.last.name}"),
             Text("Ending: ${route.price}"),
           ],
         ),

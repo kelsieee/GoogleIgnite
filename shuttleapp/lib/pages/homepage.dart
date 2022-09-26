@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shuttleapp/model/app.dart';
+import 'package:shuttleapp/model/route.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -46,21 +47,45 @@ class HomePage extends StatelessWidget {
             ),
           ),
           // Other Sliver Widgets
-          SliverList(
-            delegate: SliverChildListDelegate([
-              const SizedBox(
-                height: 400,
-                child: Center(
-                  child: Text(
-                    'Sample text 1',
+          Consumer<App>(
+            builder: (context, value, child) {
+              var app = context.read<App>();
+              if (app.keyword.isEmpty) {
+                return SliverList(
+                  delegate: SliverChildListDelegate(
+                    List.generate(app.routeList.length, (index) {
+                      return Padding(
+                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          child: Card(
+                              child: ListTile(
+                                  leading: Icon(null),
+                                  title:
+                                      Text(app.routeList[index].stops[0].name),
+                                  subtitle: Text(
+                                      app.routeList[index].stops.last.name))));
+                    }),
                   ),
-                ),
-              ),
-              Container(
-                height: 1000,
-                color: Colors.pink,
-              ),
-            ]),
+                );
+              } else {
+                List<RouteModel> filtered = app.filteredRoutes;
+                print(app.keyword);
+                print(filtered.length);
+                return SliverList(
+                  delegate: SliverChildListDelegate(
+                    List.generate(filtered.length, (index) {
+                      return Padding(
+                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          child: Card(
+                              child: ListTile(
+                                  leading: Icon(null),
+                                  title: Text(filtered[index].stops[0].name),
+                                  subtitle:
+                                      Text(filtered[index].stops.last.name))));
+                    }),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),

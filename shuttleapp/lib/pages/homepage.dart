@@ -36,13 +36,18 @@ class HomePage extends StatelessWidget {
           // Other Sliver Widgets
           SliverList(
             delegate: SliverChildListDelegate([
-              const SizedBox(
+              SizedBox(
                 height: 400,
-                child: Center(
-                  child: Text(
-                    'Sample text 1',
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        leading: Icon(Icons.album, size: 50),
+                        title: Text('Singapore Management University - SMU'),
+                        subtitle: Text('To MapleTree Business City'),
+                      ),
+                    ],
                   ),
-                ),
               ),
               Container(
                 height: 1000,

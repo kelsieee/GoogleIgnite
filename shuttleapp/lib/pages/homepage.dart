@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shuttleapp/model/app.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+  TextEditingController inputController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -13,23 +16,32 @@ class HomePage extends StatelessWidget {
             pinned: true,
             snap: false,
             centerTitle: true,
-            title: const Text('EasyGo'),
-
+            title: const Text("EasyGo"),
             bottom: AppBar(
               title: Container(
                 width: double.infinity,
                 height: 40,
                 color: Colors.transparent,
-                child: Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0),),
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: 'Search for app...',
-                        prefixIcon: const Icon(Icons.search)),
-                  ),
-                ),
+                child: Center(child: Consumer<App>(
+                  builder: (context, value, child) {
+                    return TextField(
+                      controller: inputController,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Search for app...',
+                          prefixIcon: const Icon(Icons.search)),
+                      onChanged: (val) {
+                        inputController.text = val.toString();
+                        var app = context.read<App>();
+                        app.setKeyword = inputController.text.toString();
+                      },
+                    );
+                  },
+                )),
               ),
             ),
           ),
@@ -55,5 +67,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-

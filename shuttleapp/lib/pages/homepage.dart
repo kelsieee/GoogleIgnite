@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shuttleapp/model/route.dart' as Route;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,22 +36,22 @@ class HomePage extends StatelessWidget {
           // Other Sliver Widgets
           SliverList(
             delegate: SliverChildListDelegate([
+              Container(
+                  padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+                  child: Text("Available Services")
+              ),
               SizedBox(
-                height: 400,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.album, size: 50),
-                        title: Text('Singapore Management University - SMU'),
-                        subtitle: Text('To MapleTree Business City'),
-                      ),
+                      for (int index = 1; index < 10; index++)
+                        const ListTile(
+                          leading: Icon(Icons.album, size: 50),
+                          title: Text('Singapore Management University - SMU'),
+                          subtitle: Text('To MapleTree Business City'),
+                        ),
                     ],
                   ),
-              ),
-              Container(
-                height: 1000,
-                color: Colors.pink,
               ),
             ]),
           ),

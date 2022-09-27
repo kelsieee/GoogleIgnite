@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shuttleapp/model/route.dart' as Route; // Route is class in navigator.dart as well.
 import 'package:flutter/cupertino.dart';
 import 'package:shuttleapp/pages/route_details_page.dart';
+import 'package:shuttleapp/pages/stop_list_page.dart';
 class BusPage extends StatelessWidget {
   const BusPage({super.key});
 
@@ -95,6 +96,9 @@ class BusPage extends StatelessWidget {
                             trailing: const Icon(Icons.arrow_forward_ios_rounded),
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (context) => RouteDetailsPage(route: route)));
+                            },
+                            onLongPress: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => StopListPage(route : route)));
                             },
                           )
                         )

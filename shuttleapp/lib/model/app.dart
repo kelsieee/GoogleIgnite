@@ -72,7 +72,7 @@ class App extends ChangeNotifier {
     ),
     RouteModel(
       '008',
-      '008',ç
+      '008',
       DateTime.parse('2022-09-28 19:15:00'),
       [true, true, true, false, false, true, false],
       2.50,

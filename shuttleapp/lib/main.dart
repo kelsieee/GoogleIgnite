@@ -1,29 +1,31 @@
 // main.dart
+
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:shuttleapp/model/app.dart';
 import 'package:shuttleapp/pages/buspage.dart';
 import 'package:shuttleapp/pages/homepage.dart';
 import 'package:shuttleapp/pages/schedulepage.dart';
-
+import './model/route.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => App(routeList, ''), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key : key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Remove debug banner
-      debugShowCheckedModeBanner: false,
-      title: 'EasyGo',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-
-      home: const MainPage()
-    );
+        // Remove debug banner
+        debugShowCheckedModeBanner: false,
+        title: 'EasyGo',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home: const MainPage());
   }
 }
 
@@ -38,7 +40,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final screens = [
     const SchedulePage(),
-    const HomePage(),
+    HomePage(),
     const BusPage(),
   ];
 
@@ -52,13 +54,10 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: screens[_selectedIndex],
-
       bottomNavigationBar: BottomNavigationBar(
         mouseCursor: SystemMouseCursors.grab,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -76,9 +75,8 @@ class _MainPageState extends State<MainPage> {
             label: 'Bus',
           ),
         ],
-
-      currentIndex: _selectedIndex,
-      onTap: _onNavBarTapped,
+        currentIndex: _selectedIndex,
+        onTap: _onNavBarTapped,
       ),
     );
   }

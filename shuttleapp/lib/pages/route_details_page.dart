@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shuttleapp/model/route.dart' as Route;
+import 'package:shuttleapp/model/route.dart' as RouteModel;
 
 class RouteDetailsPage extends StatelessWidget {
   const RouteDetailsPage({Key? key, required this.route}) : super(key: key);
 
-  final Route.Route route;
-
+  final RouteModel.RouteModel route;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +12,6 @@ class RouteDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(route.id),
       ),
-      
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

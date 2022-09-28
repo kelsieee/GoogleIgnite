@@ -4,8 +4,14 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/shuttleapp/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/shuttleapp/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/shuttleapp/build" />
+      <excludeFolder url="file://$MODULE_DIR$/shuttleapp/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/shuttleapp/test/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/shuttleapp/test/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/shuttleapp/test/build" />
+      <excludeFolder url="file://$MODULE_DIR$/test_app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/test_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/test_app/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

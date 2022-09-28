@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shuttleapp/model/route.dart' as RouteModel;
+import 'package:shuttleapp/model/route_model.dart' as RouteModel;
 
 class RouteDetailsPage extends StatelessWidget {
   const RouteDetailsPage({Key? key, required this.route}) : super(key: key);

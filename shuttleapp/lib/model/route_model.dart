@@ -14,27 +14,7 @@ class RouteModel {
 }
 
 List<RouteModel> routeList = [
-  RouteModel(
-    '001',
-    '001',
-    DateTime.parse('2022-09-26 08:30:00'),
-    [true, true, true, false, false, true, false],
-    2.50,
-    'SMRT',
-    [stopSample1, stopSample2, stopSample3, stopSample4],
-  ),
-  RouteModel(
-    '002',
-    '002',
-    DateTime.parse('2022-09-27 09:15:00'),
-    [true, true, true, false, false, true, false],
-    3.50,
-    'SMRT',
-    [stopSample2, stopSample1],
-  ),
-=======
-List<Route> routeList = [
-        Route(
+        RouteModel(
           '001',
           '001',
           DateTime.parse('2022-09-26 08:30:00'),
@@ -44,7 +24,7 @@ List<Route> routeList = [
           [stopSample1, stopSample2, stopSample3, stopSample10],
         ),
 
-        Route(
+        RouteModel(
           '002',
           '002',
           DateTime.parse('2022-09-27 09:15:00'),
@@ -53,7 +33,7 @@ List<Route> routeList = [
           'SMRT',
           [stopSample9, stopSample10],
         ),
-        Route(
+        RouteModel(
           '003',
           '003',
           DateTime.parse('2022-09-27 19:15:00'),
@@ -63,7 +43,7 @@ List<Route> routeList = [
           [stopSample3, stopSample8],
         ),
 
-          Route(
+        RouteModel(
           '004',
           '004',
           DateTime.parse('2022-09-28 19:15:00'),
@@ -73,7 +53,7 @@ List<Route> routeList = [
           [stopSample4,stopSample3,stopSample2],
         ),
 
-        Route(
+        RouteModel(
           '005',
           '005',
           DateTime.parse('2022-09-28 19:15:00'),
@@ -84,7 +64,7 @@ List<Route> routeList = [
         ),
         
 
-        Route(
+        RouteModel(
           '006',
           '006',
           DateTime.parse('2022-09-28 19:15:00'),
@@ -95,7 +75,7 @@ List<Route> routeList = [
         ),
         
 
-        Route(
+        RouteModel(
           '007',
           '007',
           DateTime.parse('2022-09-28 19:15:00'),
@@ -106,7 +86,7 @@ List<Route> routeList = [
         ),
         
 
-        Route(
+        RouteModel(
           '008',
           '008',
           DateTime.parse('2022-09-28 19:15:00'),
@@ -117,7 +97,7 @@ List<Route> routeList = [
         ),
         
 
-        Route(
+        RouteModel(
           '009',
           '009',
           DateTime.parse('2022-09-28 19:15:00'),
@@ -127,7 +107,7 @@ List<Route> routeList = [
           [stopSample9, stopSample8],
         ),
 
-        Route(
+        RouteModel(
           '010',
           '010',
           DateTime.parse('2022-09-28 19:15:00'),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shuttleapp/model/route.dart' as Route;
+import 'package:shuttleapp/model/route_model.dart';
 import 'package:shuttleapp/model/stop.dart';
 
 class StopCard extends StatelessWidget {
 
-  final Route.Route route;
+  final RouteModel route;
   final int index;
   final String availableDays;
   const StopCard({super.key, required this.route, required this.index, required this.availableDays});

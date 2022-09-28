@@ -4,6 +4,7 @@ import 'package:shuttleapp/pages/buspage.dart';
 import 'package:shuttleapp/pages/homepage.dart';
 import 'package:shuttleapp/pages/schedulepage.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      // Remove debug banner
+      debugShowCheckedModeBanner: false,
+      title: 'EasyGo',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
@@ -32,10 +35,16 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MainPageState extends State<MainPage> {
+  final screens = [
+    const SchedulePage(),
+    const HomePage(),
+    const BusPage(),
+  ];
 
-  void _incrementCounter() {
+  int _selectedIndex = 0;
+
+  void _onNavBarTapped(int index) {
     setState(() {
       // call to setState tells Flutter framework that a navbar icon has been tapped
       // occurs in BottomNavBar section below
@@ -74,5 +83,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-

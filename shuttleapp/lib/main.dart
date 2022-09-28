@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Remove debug banner
-      debugShowCheckedModeBanner: false,
-      title: 'EasyGo',
+      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
@@ -34,16 +32,10 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
-  final screens = [
-    const SchedulePage(),
-    const HomePage(),
-    const BusPage(),
-  ];
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
 
-  int _selectedIndex = 0;
-
-  void _onNavBarTapped(int index) {
+  void _incrementCounter() {
     setState(() {
       // call to setState tells Flutter framework that a navbar icon has been tapped
       // occurs in BottomNavBar section below

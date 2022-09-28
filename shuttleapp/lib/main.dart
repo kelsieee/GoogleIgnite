@@ -4,7 +4,6 @@ import 'package:shuttleapp/pages/buspage.dart';
 import 'package:shuttleapp/pages/homepage.dart';
 import 'package:shuttleapp/pages/schedulepage.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -83,3 +82,5 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+

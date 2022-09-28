@@ -1,16 +1,12 @@
 // main.dart
-
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:shuttleapp/model/app.dart';
 import 'package:shuttleapp/pages/buspage.dart';
 import 'package:shuttleapp/pages/homepage.dart';
 import 'package:shuttleapp/pages/schedulepage.dart';
 import './model/route.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => App(''), child: const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

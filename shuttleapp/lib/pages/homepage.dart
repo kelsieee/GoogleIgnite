@@ -57,7 +57,9 @@ class HomePage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Card(
                               child: ListTile(
-                            leading: Icon(null),
+                            leading: Container(
+                              child: FlutterLogo(),
+                            ),
                             title: Text(app.routeList[index].stops[0].name),
                             subtitle:
                                 Text(app.routeList[index].stops.last.name),
@@ -74,8 +76,8 @@ class HomePage extends StatelessWidget {
                 );
               } else {
                 app.filteredRoutes;
-                print(app.keyword);
-                print(app.filtered.length);
+                // print(app.keyword);
+                // print(app.filtered.length);
                 return SliverList(
                   delegate: SliverChildListDelegate(
                     List.generate(app.filtered.length, (index) {
@@ -83,11 +85,17 @@ class HomePage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Card(
                               child: ListTile(
-                                  leading: Icon(null),
-                                  title:
-                                      Text(app.filtered[index].stops[0].name),
-                                  subtitle: Text(
-                                      app.filtered[index].stops.last.name))));
+                            leading: Icon(null),
+                            title: Text(app.filtered[index].stops[0].name),
+                            subtitle: Text(app.filtered[index].stops.last.name),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StopListPage(
+                                          route: app.routeList[index])));
+                            },
+                          )));
                     }),
                   ),
                 );

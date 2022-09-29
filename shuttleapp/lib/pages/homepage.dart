@@ -56,20 +56,31 @@ class HomePage extends StatelessWidget {
                       return Padding(
                           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Card(
-                              child: ListTile(
-                            leading: Container(
-                              child: FlutterLogo(),
-                            ),
-                            title: Text(app.routeList[index].stops[0].name),
-                            subtitle:
-                                Text(app.routeList[index].stops.last.name),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => StopListPage(
-                                          route: app.routeList[index])));
-                            },
+                              child: Column(
+                            children: [
+                              // Stack(alignment: Alignment.bottomLeft, children: [
+                              //   Image.network(
+                              //       app.routeList[index].stops.first.imageUrl),
+                              // ]),
+                              ListTile(
+                                leading: Container(
+                                  width: 45,
+                                  height: 45,
+                                  child: Image.network(app
+                                      .routeList[index].stops.first.imageUrl),
+                                ),
+                                title: Text(app.routeList[index].stops[0].name),
+                                subtitle:
+                                    Text(app.routeList[index].stops.last.name),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => StopListPage(
+                                              route: app.routeList[index])));
+                                },
+                              ),
+                            ],
                           )));
                     }),
                   ),

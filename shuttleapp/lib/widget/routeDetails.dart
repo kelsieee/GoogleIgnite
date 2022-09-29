@@ -31,7 +31,7 @@ class RouteDetails extends StatelessWidget {
                 width: 500,
                 color: Colors.transparent,
                 child: Container(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 20, top: 5),
                   decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -50,7 +50,7 @@ class RouteDetails extends StatelessWidget {
                 width: 500,
                 color: Colors.transparent,
                 child: Container(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 20, top: 5),
                   decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -69,7 +69,7 @@ class RouteDetails extends StatelessWidget {
                 width: 500,
                 color: Colors.transparent,
                 child: Container(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 20, top: 5),
                   decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -88,7 +88,7 @@ class RouteDetails extends StatelessWidget {
                 width: 500,
                 color: Colors.transparent,
                 child: Container(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 20, top: 5),
                   decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),

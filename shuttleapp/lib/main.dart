@@ -10,7 +10,7 @@ import './model/route_model.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-      create: (context) => App(routeList, ''), child: const MyApp()));
+      create: (context) => App(''), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

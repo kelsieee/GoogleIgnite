@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shuttleapp/model/app.dart';
+import 'package:shuttleapp/pages/stop_list_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -22,45 +23,76 @@ class HomePage extends StatelessWidget {
                 width: double.infinity,
                 height: 40,
                 color: Colors.transparent,
-                child: Center(child: Consumer<App>(
-                  builder: (context, value, child) {
-                    return TextField(
-                      controller: inputController,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintText: 'Search for app...',
-                          prefixIcon: const Icon(Icons.search)),
-                      onChanged: (val) {
-                        inputController.text = val.toString();
-                        var app = context.read<App>();
-                        app.setKeyword = inputController.text.toString();
-                      },
-                    );
+                child: Center(
+                    child: TextField(
+                  controller: inputController,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: 'Search for app...',
+                      prefixIcon: const Icon(Icons.search)),
+                  onChanged: (val) {
+                    inputController.text = val.toString();
+                    inputController.selection = TextSelection.fromPosition(
+                        TextPosition(offset: inputController.text.length));
+                    var app = context.read<App>();
+                    app.setKeyword = inputController.text.toString();
                   },
                 )),
               ),
             ),
           ),
           // Other Sliver Widgets
-          SliverList(
-            delegate: SliverChildListDelegate([
-              const SizedBox(
-                height: 400,
-                child: Center(
-                  child: Text(
-                    'Sample text 1',
+          Consumer<App>(
+            builder: (context, value, child) {
+              var app = context.read<App>();
+              if (app.keyword.isEmpty) {
+                return SliverList(
+                  delegate: SliverChildListDelegate(
+                    List.generate(app.routeList.length, (index) {
+                      return Padding(
+                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          child: Card(
+                              child: ListTile(
+                            leading: Icon(null),
+                            title: Text(app.routeList[index].stops[0].name),
+                            subtitle:
+                                Text(app.routeList[index].stops.last.name),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StopListPage(
+                                          route: app.routeList[index])));
+                            },
+                          )));
+                    }),
                   ),
-                ),
-              ),
-              Container(
-                height: 1000,
-                color: Colors.pink,
-              ),
-            ]),
+                );
+              } else {
+                app.filteredRoutes;
+                print(app.keyword);
+                print(app.filtered.length);
+                return SliverList(
+                  delegate: SliverChildListDelegate(
+                    List.generate(app.filtered.length, (index) {
+                      return Padding(
+                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          child: Card(
+                              child: ListTile(
+                                  leading: Icon(null),
+                                  title:
+                                      Text(app.filtered[index].stops[0].name),
+                                  subtitle: Text(
+                                      app.filtered[index].stops.last.name))));
+                    }),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),

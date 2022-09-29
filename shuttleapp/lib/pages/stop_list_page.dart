@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shuttleapp/model/route.dart' as Route;
+import 'package:shuttleapp/model/route_model.dart';
 import 'package:shuttleapp/widget/stopCard.dart';
 import 'package:shuttleapp/widget/routeDetails.dart';
 
 class StopListPage extends StatelessWidget {
   const StopListPage({Key? key, required this.route}) : super(key:key);
 
-  final Route.Route route;
+  final RouteModel route;
 
 
   @override

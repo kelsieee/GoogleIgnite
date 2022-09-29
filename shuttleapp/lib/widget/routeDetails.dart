@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shuttleapp/model/route.dart' as Route;
+import 'package:shuttleapp/model/route_model.dart';
 
 class RouteDetails extends StatelessWidget {
 
-  final Route.Route route;
+  final RouteModel route;
   final String availableDays;
   const RouteDetails({super.key, required this.route, required this.availableDays});
 

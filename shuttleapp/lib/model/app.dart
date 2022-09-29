@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './route.dart';
+import './route_model.dart';
 
 class App extends ChangeNotifier {
   final List<RouteModel> routes;

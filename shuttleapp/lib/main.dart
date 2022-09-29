@@ -6,7 +6,7 @@ import 'package:shuttleapp/model/app.dart';
 import 'package:shuttleapp/pages/buspage.dart';
 import 'package:shuttleapp/pages/homepage.dart';
 import 'package:shuttleapp/pages/schedulepage.dart';
-import './model/route.dart';
+import './model/route_model.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(

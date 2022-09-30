@@ -96,7 +96,12 @@ class HomePage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Card(
                               child: ListTile(
-                            leading: Icon(null),
+                            leading: Container(
+                              width: 45,
+                              height: 45,
+                              child: Image.network(
+                                  app.routeList[index].stops.first.imageUrl),
+                            ),
                             title: Text(app.filtered[index].stops[0].name),
                             subtitle: Text(app.filtered[index].stops.last.name),
                             onTap: () {

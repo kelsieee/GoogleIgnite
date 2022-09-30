@@ -18,14 +18,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
         // Remove debug banner
         debugShowCheckedModeBanner: false,
         title: 'EasyGo',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
-        home: const MainPage());
+        home: MainPage());
   }
 }
 
@@ -57,6 +54,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF6B8972),
       body: screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         mouseCursor: SystemMouseCursors.grab,

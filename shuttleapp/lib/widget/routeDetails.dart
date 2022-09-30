@@ -15,10 +15,10 @@ class RouteDetails extends StatelessWidget {
             height: 30,
             width: 500,
             alignment: Alignment.topLeft,
-            color: const Color.fromRGBO(227, 244, 244, 1),
+            color: const Color(0xFF6B8972),
             child: const BackButton()),
         Container(
-          color: const Color.fromRGBO(227, 244, 244, 1),
+          color: const Color(0xFF6B8972),
           width: MediaQuery.of(context).size.width,
           height: 190,
           padding: const EdgeInsets.fromLTRB(35.0, 0.0, 35.0, 20.0),

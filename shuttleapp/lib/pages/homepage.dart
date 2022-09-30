@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF6B8972),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -17,31 +18,40 @@ class HomePage extends StatelessWidget {
             pinned: true,
             snap: false,
             centerTitle: true,
-            title: const Text("EasyGo"),
+            title: const Text(
+              "EasyGo",
+              style: TextStyle(
+                  color: Color(0xFF6B8972),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28),
+            ),
+            backgroundColor: const Color(0xFFF9F4E8),
             bottom: AppBar(
+              backgroundColor: const Color(0xFFF9F4E8),
               title: Container(
                 width: double.infinity,
                 height: 40,
-                color: Colors.transparent,
-                child: Center(
+                color: Color(0xFFF9F4E8),
+                child: Container(
+                    color: Colors.transparent,
                     child: TextField(
-                  controller: inputController,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: 'Search for app...',
-                      prefixIcon: const Icon(Icons.search)),
-                  onChanged: (val) {
-                    inputController.text = val.toString();
-                    inputController.selection = TextSelection.fromPosition(
-                        TextPosition(offset: inputController.text.length));
-                    var app = context.read<App>();
-                    app.setKeyword = inputController.text.toString();
-                  },
-                )),
+                      controller: inputController,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Search for app...',
+                          prefixIcon: const Icon(Icons.search)),
+                      onChanged: (val) {
+                        inputController.text = val.toString();
+                        inputController.selection = TextSelection.fromPosition(
+                            TextPosition(offset: inputController.text.length));
+                        var app = context.read<App>();
+                        app.setKeyword = inputController.text.toString();
+                      },
+                    )),
               ),
             ),
           ),
@@ -96,7 +106,12 @@ class HomePage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Card(
                               child: ListTile(
-                            leading: Icon(null),
+                            leading: Container(
+                              width: 45,
+                              height: 45,
+                              child: Image.network(
+                                  app.routeList[index].stops.first.imageUrl),
+                            ),
                             title: Text(app.filtered[index].stops[0].name),
                             subtitle: Text(app.filtered[index].stops.last.name),
                             onTap: () {

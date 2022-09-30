@@ -32,8 +32,6 @@ class StopCard extends StatelessWidget {
           children: [
             Text("Location: ${stop.name}", style: TextStyle(fontSize: 10),),
             Text("Description: ${stop.description}", style: TextStyle(fontSize: 10),),
-            Text("Frequency $availableDays", style: TextStyle(fontSize: 10),),
-            Text("Fare: \$${route.price}", style: TextStyle(fontSize: 10),),
           ],
         ),
       ),

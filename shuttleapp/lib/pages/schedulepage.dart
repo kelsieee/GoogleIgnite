@@ -7,10 +7,10 @@ class SchedulePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Schedule Page')
-      ),
-
-      body: const Center(child: Text('Schedule', style: TextStyle(fontSize: 60))),
+          backgroundColor: Color(0xFF6B8972),
+          title: const Text('Schedule Page')),
+      body:
+          const Center(child: Text('Schedule', style: TextStyle(fontSize: 60))),
     );
   }
 }

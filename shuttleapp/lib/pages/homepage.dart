@@ -99,32 +99,55 @@ class HomePage extends StatelessWidget {
                 app.filteredRoutes;
                 // print(app.keyword);
                 // print(app.filtered.length);
-                return SliverList(
-                  delegate: SliverChildListDelegate(
-                    List.generate(app.filtered.length, (index) {
-                      return Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                          child: Card(
-                              child: ListTile(
-                            leading: Container(
-                              width: 45,
-                              height: 45,
-                              child: Image.network(
-                                  app.routeList[index].stops.first.imageUrl),
-                            ),
-                            title: Text(app.filtered[index].stops[0].name),
-                            subtitle: Text(app.filtered[index].stops.last.name),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => StopListPage(
-                                          route: app.routeList[index])));
-                            },
-                          )));
-                    }),
-                  ),
-                );
+                if (app.filtered.length == 0) {
+                  return SliverList(
+                      delegate: SliverChildListDelegate(
+                        List.generate(1,(index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                              child: Column(
+                            children: [
+                              new Image.asset("images/Crying-Face-Emoji.png",
+                                height: 200.0,
+                                fit: BoxFit.cover,),
+                              Text("No Service Available",
+                                style: TextStyle(
+                                  color: Color(0xFFFFFFFF),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 28),)
+                            ]
+                          ));
+                      }
+                      ))
+                  );
+                }else{
+                  return SliverList(
+                    delegate: SliverChildListDelegate(
+                      List.generate(app.filtered.length, (index) {
+                        return Padding(
+                            padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                            child: Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 45,
+                                    height: 45,
+                                    child: Image.network(
+                                        app.routeList[index].stops.first.imageUrl),
+                                  ),
+                                  title: Text(app.filtered[index].stops[0].name),
+                                  subtitle: Text(app.filtered[index].stops.last.name),
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => StopListPage(
+                                                route: app.routeList[index])));
+                                  },
+                                )));
+                      }),
+                    ),
+                  );
+                }
               }
             },
           ),

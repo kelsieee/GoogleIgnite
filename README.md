@@ -6,6 +6,7 @@
 - Jaylin (member)
 - Xian Xiang (member)
 - Aloysius (member)
+- Jennifer (member)
 
 ### MVP features
 1. User request input
